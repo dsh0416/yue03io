@@ -1,6 +1,9 @@
 name: build
 run-name: Build Vue.js and push to deploy branch
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     name: Build
@@ -21,3 +24,4 @@ jobs:
         with:
           branch: deploy
           folder: dist
+          ssh-key: ${{ secrets.SSH_KEY }}
